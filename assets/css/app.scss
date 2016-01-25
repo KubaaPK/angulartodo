@@ -1,0 +1,27 @@
+$blue: #01579B;
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+input[type="text"]{
+  padding: 8.5px;
+}
+
+input[type="date"]{
+  padding: 7.5px;
+}
+
+body {
+  background-color: rgba($blue,.5);
+}
+
+.index_body {
+  background-color: white;
+  h2 {
+    color: black;
+  }
+}
+
+.todoelem {
+  color: black;
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+}

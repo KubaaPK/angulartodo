@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>todo App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+  <div class="container index_body" ng-controller="todoController">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2 class="text-center">todo() list!</h2>
+      <hr>
+
+      <!-- DODWANIE NOWYCH TODOS -->
+ <form ng-submit="todoAdd()">
+   <input type="text" ng-model="todoInput" size="60" placeholder="Add new todo by pressing enter" required>
+   <input type="date" ng-model="dateInput"/>
+   <button type="submit" value="Add new" class="btn btn-success"><i class="fa fa-plus-circle fa-2x"></i></button>
+ </form>
+ <br>
+
+ <!-- WYŚWIETLANIE TODOS -->
+   <div ng-repeat="todo in todoList" ng-click="doneEditing($event)">
+     <input type="checkbox" ng-model="todo.done">
+     <span class="todoelem">
+       {{todo.text}} - {{todo.date |date:'medium'}}
+     </span>
+     <br><br>
+   </div>
+
+
+
+   <!-- PRZYCISK DO USUWANIA ZAZNACZONYCH TODOS -->
+       <p>
+         <button ng-click="todoRemove()" class="btn btn-danger"><i class="fa fa-trash fa-2x"></i></button>
+       </p>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <script src="app/lib/angular.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controllers/todoController.js"></script>
+</body>
+
+</html>
